@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+
+    <h2 class="mb-0">Final recommendation:</h2>
+    <h3 class="mb-0">Рекомендуемый оттенок тональной основы: {{otten_osn}}</h3>
+    <h3 class="mb-0">Рекомендуемая интенсивность тональной основы: {{intens_osn}}</h3>
+    <h3 class="mb-0">Рекомендуемый оттенок теней для век: {{eye_rec}}</h3>
+    <h3 class="mb-0">Рекомендуемый оттенок губной помады: {{lip_rec}}</h3>
+
+    <h2 class="mb-0">Исследование взаимосвязи между возрастом и состоянием кожи:</h2>
+    <h4>График корреляции №1: </h4>
+    <div id="markers" class="bar">
+    </div>
+
+    <h4>График корреляции №2: </h4>
+    <div id="lines" class="bar">
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/d3.v5.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>
+
+
+    <script type="text/javascript">
+        var graphs = {{graphsJSON | safe}};
+        for(var block_id in graphs) {
+            Plotly.plot(block_id, // the ID of the div, created above
+                        graphs[block_id],{});
+        }
+    </script>
+
+    <h3 class="mb-0">Correlation coefficient: {{ corr }}</h3>
+    <h3 class="mb-0">{{ conclusion }}</h3>
+    <h3 class="mb-0">Номер кластера группируя возраст и состояние кожи: {{ clas }}</h3>
+
+{% endblock %}

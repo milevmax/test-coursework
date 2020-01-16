@@ -1,0 +1,161 @@
+<style>
+    #submit {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .form {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+    .button-save {
+            padding-right: 15px;
+    }
+</style>
+
+{% extends "index.html" %}
+
+{% block content %}
+
+
+    <div class="user-wrapper">
+        <form class="form"  {#  action = "/create_user"#} method="POST">
+            <div class="col-md-6 mx-auto">
+                <!-- form card login -->
+                <div class="card rounded-0">
+                    <div class="card-header">
+                        <h3 class="mb-0">Personal data</h3>
+                    </div>
+                    <div class="card-body">
+                        {{ form.hidden_tag() }}
+
+                        <div class="form-group">
+                            {{ form.user_name.label }}
+                            {{ form.user_name(class_="form-control") }}
+
+                            {% if form.user_name.errors%}
+                                <div class="alert alert-danger" role="alert">
+                                    {% for message in form.user_name.errors %}
+                                         <div>{{ message }}</div>
+                                    {% endfor %}
+                                </div>
+                            {%endif%}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.user_age.label }}
+                            {{ form.user_age(class_="form-control") }}
+
+                            {% if form.user_age.errors%}
+                                <div class="alert alert-danger" role="alert">
+                                    {% for message in form.user_age.errors %}
+                                         <div>{{ message }}</div>
+                                    {% endfor %}
+                                </div>
+                            {%endif%}
+                        </div>
+
+
+                        <div class="form-group">
+                            {{ form.user_email.label }}
+                            {{ form.user_email(class_="form-control") }}
+
+                            {% if form.user_email.errors%}
+                                <div class="alert alert-danger" role="alert">
+                                    {% for message in form.user_email.errors %}
+                                         <div>{{ message }}</div>
+                                    {% endfor %}
+                                </div>
+                            {%endif%}
+                        </div>
+                    </div>
+                    <!--/card-block-->
+                </div>
+                <!-- /form card login -->
+            </div>
+            <div class="col-md-6 mx-auto">
+                <!-- form card login -->
+                <div class="card rounded-0">
+                    <div class="card-header">
+                        <h3 class="mb-0">Physiological characteristics</h3>
+                    </div>
+                    <div class="card-body">
+                        {{ form.hidden_tag() }}
+
+                        <div class="form-group">
+                            {{ form.skin_condition.label }}
+                            {{ form.skin_condition(class_="form-control") }}
+
+                            {% if form.skin_condition.errors%}
+                                <div class="alert alert-danger" role="alert">
+                                    {% for message in form.skin_condition.errors %}
+                                         <div>{{ message }}</div>
+                                    {% endfor %}
+                                </div>
+                            {%endif%}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.eye_color.label }}
+                            {{ form.eye_color(class_="form-control") }}
+
+                            {% if form.eye_color.errors%}
+                                <div class="alert alert-danger" role="alert">
+                                    {% for message in form.eye_color.errors %}
+                                         <div>{{ message }}</div>
+                                    {% endfor %}
+                                </div>
+                            {%endif%}
+                        </div>
+
+
+                        <div class="form-group">
+                            {{ form.hair_color.label }}
+                            {{ form.hair_color(class_="form-control") }}
+
+                            {% if form.hair_color.errors%}
+                                <div class="alert alert-danger" role="alert">
+                                    {% for message in form.hair_color.errors %}
+                                         <div>{{ message }}</div>
+                                    {% endfor %}
+                                </div>
+                            {%endif%}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.lips_color.label }}
+                            {{ form.lips_color(class_="form-control") }}
+
+                            {% if form.lips_color.errors%}
+                                <div class="alert alert-danger" role="alert">
+                                    {% for message in form.lips_color.errors %}
+                                         <div>{{ message }}</div>
+                                    {% endfor %}
+                                </div>
+                            {%endif%}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.skin_tone.label }}
+                            {{ form.skin_tone(class_="form-control") }}
+
+                            {% if form.skin_tone.errors%}
+                                <div class="alert alert-danger" role="alert">
+                                    {% for message in form.skin_tone.errors %}
+                                         <div>{{ message }}</div>
+                                    {% endfor %}
+                                </div>
+                            {%endif%}
+                        </div>
+                    </div>
+                    <!--/card-block-->
+                </div>
+                <!-- /form card login -->
+            </div>
+            <div class="button-save">
+                {{ form.submit(class_="btn btn-success") }}
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

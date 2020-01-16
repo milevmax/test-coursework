@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+
+
+ <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">vendor_name</th>
+                <th scope="col">vendor_address</th>
+                <th scope="col">vendor_country</th>
+                <th scope="col">vendor_balance</th>
+                <th scope="col">remedy_id</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vendor in vendors %}
+            <tr >
+                <td> {{vendor.vendor_name}} </td>
+                <td> {{vendor.vendor_address}} </td>
+                <td> {{vendor.vendor_country}} </td>
+                <td> {{vendor.vendor_balance}} </td>
+                <td> {{vendor.vendor_balance}} </td>
+            </tr>
+        {% endfor %}
+            <tr>
+                <td> <a href="/create_user" type="button" class="btn btn-warning">New User</a> </td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+
+
+ <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">name</th>
+                <th scope="col">age</th>
+                <th scope="col">email</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr >
+                <td> {{user.user_id}} </td>
+                <td> {{user.user_name}} </td>
+                <td> {{user.user_age}} </td>
+                <td> {{user.user_email}} </td>
+                <td>
+                    <a href="/user_edit/{{user.user_id}}" type="button" class="btn btn-warning" data-person_login="{{user.user_id}}">Edit</a>
+                    <a href="/delete_user/{{user.user_id}}" type="button" class="btn btn-warning" data-person_login="{{user.user_id}}">Delete</a>
+                    <a href="/new_feature/{{user.user_id}}" type="button" class="btn btn-warning">Add feature</a>
+                    <a href="/user_details/{{user.user_id}}" type="button" class="btn btn-warning">Details</a>
+                </td>
+            </tr>
+        {% endfor %}
+            <tr>
+                <td> <a href="/create_user" type="button" class="btn btn-warning">New User</a> </td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+
+{% endblock %}

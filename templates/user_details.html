@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+
+ <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Skin condition</th>
+                <th scope="col">Skin tone</th>
+                <th scope="col">Eye color</th>
+                <th scope="col">Hair color</th>
+                <th scope="col">Lips color</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr >
+                <td> {{user.skin_condition}} </td>
+                <td> {{user.skin_tone}} </td>
+                <td> {{user.eye_color}} </td>
+                <td> {{user.hair_color}} </td>
+                <td> {{user.lips_color}} </td>
+            </tr>
+        {% endfor %}
+        {% for user in users %}
+            <tr>
+                <td> <a href="/AI/{{user.user_id}}" type="button" class="btn btn-warning" data-person_login="{{user.user_id}}">create a recommendation</a> </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ </div>
+
+{% endblock %}

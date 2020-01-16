@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+
+
+ <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">name</th>
+                <th scope="col">size</th>
+                <th scope="col">form description</th>
+                <th scope="col">u_id</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for feature in features %}
+            <tr >
+                <td> {{feature.feature_id}} </td>
+                <td> {{feature.feature_name}} </td>
+                <td> {{feature.feature_size}} </td>
+                <td> {{feature.formtype}} </td>
+                <td> {{feature.user_id}} </td>
+                <td>
+                    <a href="/edit_feature/{{feature.feature_id}}" type="button" class="btn btn-warning">Edit</a>
+                    <a href="/delete_feature/{{feature.feature_id}}" type="button" class="btn btn-warning">Delete</a>
+                    <a href="/new_remedy/{{feature.feature_id}}" type="button" class="btn btn-warning">Add remedy</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ </div>
+
+
+
+{% endblock %}
