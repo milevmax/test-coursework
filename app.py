@@ -63,14 +63,14 @@ class OrmRemedy(db.Model):
     feature_id = db.Column(db.Integer, db.ForeignKey('orm_feature.feature_id'))
 
 
-# try:
-#     db.drop_all()
-#     db.session.commit()
-# except:
-#     pass
+try:
+    db.drop_all()
+    db.session.commit()
+except:
+    pass
 
 db.create_all()
-# db.session.commit()
+db.session.commit()
 
 John = OrmUser(
     user_id=1,
@@ -188,23 +188,23 @@ Poudre = OrmRemedy(
     feature_id = 1
 )
 
-# db.session.add_all([
+db.session.add_all([
 
-#     John,
-#     Paul,
-#     George,
-#     Ringo,
-#     Paul_nose,
-#     Paul_lips,
-#     John_nose,
-#     George_eyes,
-#     Pomade,
-#     Shadows,
-#     Conciller,
-#     Poudre
-# ])
+    John,
+    Paul,
+    George,
+    Ringo,
+    Paul_nose,
+    Paul_lips,
+    John_nose,
+    George_eyes,
+    Pomade,
+    Shadows,
+    Conciller,
+    Poudre
+])
 
-# db.session.commit()
+db.session.commit()
 
 
 @app.route('/', methods=['POST', 'GET'])
