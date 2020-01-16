@@ -19,8 +19,8 @@ from sklearn.cluster import KMeans
 
 app = Flask(__name__)
 app.secret_key = 'key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://hjbywnkvkncvpp:a3995b361295f55f6c35a1fe7ddce53876fa61cd9ae9408443e95e47cac373e4@ec2-174-129-33-84.compute-1.amazonaws.com:5432/d50235egbbs33'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:fastdagger@localhost/milev'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nihbiiivdbuacs:0af0b4611eac103f3a900e107635a51230813e8481f938d70eb50cb45784e422@ec2-3-214-53-225.compute-1.amazonaws.com:5432/dcnqo33t4gpchj'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:fastdagger@localhost/milev'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -63,14 +63,14 @@ class OrmRemedy(db.Model):
     feature_id = db.Column(db.Integer, db.ForeignKey('orm_feature.feature_id'))
 
 
-# try:
-#     db.drop_all()
-#     db.session.commit()
-# except:
-#     pass
+try:
+    db.drop_all()
+    db.session.commit()
+except:
+    pass
 
 db.create_all()
-# db.session.commit()
+db.session.commit()
 
 John = OrmUser(
     user_id=1,
@@ -188,23 +188,23 @@ Poudre = OrmRemedy(
     feature_id = 1
 )
 
-# db.session.add_all([
+db.session.add_all([
 
-#     John,
-#     Paul,
-#     George,
-#     Ringo,
-#     Paul_nose,
-#     Paul_lips,
-#     John_nose,
-#     George_eyes,
-#     Pomade,
-#     Shadows,
-#     Conciller,
-#     Poudre
-# ])
+    John,
+    Paul,
+    George,
+    Ringo,
+    Paul_nose,
+    Paul_lips,
+    John_nose,
+    George_eyes,
+    Pomade,
+    Shadows,
+    Conciller,
+    Poudre
+])
 
-# db.session.commit()
+db.session.commit()
 
 
 @app.route('/', methods=['POST', 'GET'])
