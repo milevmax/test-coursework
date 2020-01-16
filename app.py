@@ -188,21 +188,21 @@ Poudre = OrmRemedy(
     feature_id = 1
 )
 
-db.session.add_all([
+# db.session.add_all([
 
-    John,
-    Paul,
-    George,
-    Ringo,
-    Paul_nose,
-    Paul_lips,
-    John_nose,
-    George_eyes,
-    Pomade,
-    Shadows,
-    Conciller,
-    Poudre
-])
+#     John,
+#     Paul,
+#     George,
+#     Ringo,
+#     Paul_nose,
+#     Paul_lips,
+#     John_nose,
+#     George_eyes,
+#     Pomade,
+#     Shadows,
+#     Conciller,
+#     Poudre
+# ])
 
 # db.session.commit()
 
